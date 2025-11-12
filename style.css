@@ -1,0 +1,153 @@
+/* === XÓA BỎ CÁC QUY TẮC LAYOUT XUNG ĐỘT === */
+
+/* .baivietnho { ... } (ĐÃ XÓA) */
+/* .baivietlon { ... } (ĐÃ XÓA) */
+/* .content1 { ... } (ĐÃ XÓA) */
+/* .media-2 { ... } (ĐÃ XÓA) */
+/* .banner2 { ... } (ĐÃ XÓA) */
+/* .event { ... } (ĐÃ XÓA) */
+/* .row { ... } (ĐÃ XÓA) */
+/* .quangcao { ... } (ĐÃ XÓA) */
+/* .quangcao>img { ... } (ĐÃ XÓA) */
+/* .media-2-child>img { ... } (ĐÃ XÓA) */
+/* .banner2-child>img { ... } (ĐÃ XÓA) */
+/* .quangcao2>img { ... } (ĐÃ XÓA) */
+/* .logo>img { ... } (ĐÃ XÓA) */
+/* .b2>img { ... } (ĐÃ XÓA) */
+/* TOÀN BỘ PHẦN .main-navbar, .nav-links ... (ĐÃ XÓA) */
+
+
+/* === GIỮ LẠI VÀ TINH CHỈNH CÁC STYLE CÒN LẠI === */
+
+.text-baivietlon {
+    align-items: center;
+    font-size: large;
+}
+
+.multimedia {
+    /* (XÓA display: flex) */
+    margin-top: 30px;
+    background-color: rgb(44, 71, 209);
+    color: white;
+    padding: 20px 0;
+    /* (THÊM padding) */
+}
+
+ul>li {
+    list-style-type: none;
+}
+
+ul>li>a {
+    text-decoration: none;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Flex Container chính (GIỮ NGUYÊN) */
+.header-banner {
+    background-color: #004d99;
+    padding: 15px 5%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    /* Căn giữa các mục theo chiều dọc */
+    justify-content: space-between;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+/* Khối 1: Logo và Tên Hiệp hội (GIỮ NGUYÊN) */
+.logo-vavet-group {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-right: 20px;
+    max-width: 300px;
+    /* Giới hạn chiều rộng khối chữ */
+}
+
+/* Logo (Dùng ảnh) (GIỮ NGUYÊN) */
+.logo-vavet-group .logo-img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+
+/* Phần chữ Hiệp hội (HTML) (GIỮ NGUYÊN) */
+.vavet-text {
+    color: white;
+    line-height: 1.2;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.vavet-text span {
+    font-weight: normal;
+    font-size: 0.8rem;
+}
+
+/* Khối Forum (Dùng ảnh) (GIỮ NGUYÊN) */
+.forum-block-img {
+    max-height: 120px;
+    /* Chiều cao tối đa bằng banner */
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+/* Khối Đối tác GIZ/ILO (Dùng ảnh) (GIỮ NGUYÊN) */
+.partner-logos-img {
+    max-height: 120px;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+/* Khối Tìm kiếm/Cơ hội (Dùng ảnh) (GIỮ NGUYÊN) */
+.job-search-block-img {
+    max-height: 120px;
+    flex-shrink: 0;
+}
+
+/* Hiệu ứng gradient mờ ở giữa (GIỮ NGUYÊN) */
+.header-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(125, 200, 255, 0.4), transparent 50%);
+    pointer-events: none;
+}
+
+/* === THÊM MEDIA QUERY CHO HEADER TÙY CHỈNH === */
+@media (max-width: 992px) {
+    .header-banner {
+        flex-direction: column;
+        /* Xếp chồng các mục */
+        height: auto;
+        /* Cho phép chiều cao tự động */
+        padding: 15px;
+        text-align: center;
+    }
+
+    .logo-vavet-group {
+        margin-bottom: 15px;
+        text-align: center;
+        margin-right: 0;
+        flex-direction: column;
+        /* Xếp logo trên chữ */
+    }
+
+    .forum-block-img,
+    .partner-logos-img,
+    .job-search-block-img {
+        max-height: 80px;
+        /* Thu nhỏ ảnh 1 chút */
+        margin: 5px 0;
+    }
+}
